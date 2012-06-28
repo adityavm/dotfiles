@@ -5,6 +5,9 @@ export NODE_PATH=$PATH:/usr/local/lib/node:/usr/local/lib/node_modules
 # for nodjs
 export NODE_PATH=/usr/local/lib/node
 
+# for fasd
+eval "$(fasd --init auto)"
+
 if [[ -n $SSH_CONNECTION ]]; then
   export PS1='%m:%3~$(git_info_for_prompt)%# '
 else
