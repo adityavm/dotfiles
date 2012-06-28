@@ -1,3 +1,7 @@
+" pathogen (do this before everything)
+call pathogen#infect()
+filetype plugin indent on
+
 set lines=100
 set columns=150
 set guioptions-=T
@@ -29,7 +33,7 @@ set numberwidth=4
 hi LineNr guibg=grey10 guifg=grey30
 hi Folded guibg=#1d1d1d guifg=#808080 gui=none
 
-set enc=utf-8 gfn=Consolas:h11
+set enc=utf-8 gfn=Consolas\ for\ Powerline:h11
 set mousehide
 
 let g:easytags_cmd = '/usr/local/bin/ctags'
@@ -40,12 +44,23 @@ set tags=./.tags;,~/.vimtags
 cmap W w
 
 " set up syntax completion
-filetype plugin on
 imap <C-Tab> <C-x><C-o>
 
 " custom syntax highlighting rules
-filetype on
 au BufNewFile,BufRead *.less set filetype=less
 
 " stop cursor blinking
 set guicursor+=n-v-c:blinkon0
+
+" numbers.vim made easy
+function! g:ToggleRNU()
+	if(&rnu == 1)
+		set nu
+	else
+		set rnu
+	endif
+endfunc
+nnoremap <F3> :call g:ToggleRNU()<CR>
+
+" powerline
+set laststatus=2

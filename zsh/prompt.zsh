@@ -152,7 +152,7 @@ function notes_count() {
   else
     local NOTES_PATTERN=$1;
   fi
-  grep -En "\b($NOTES_PATTERN)\b" * 2>/dev/null | wc -l | sed 's/ //g'
+  grep -ERn "\b($NOTES_PATTERN)\b" {notes,todo} 2>/dev/null | wc -l | sed 's/ //g'
 }
 
 function notes_prompt() {
