@@ -6,6 +6,11 @@ set lines=100
 set columns=150
 set guioptions-=T
 
+" hide scrollbars
+" + needs stuff in .vimrc too for both scrollbars
+set guioptions-=r
+set guioptions-=R
+
 set t_Co=256
 syntax enable
 

@@ -1,2 +1,5 @@
 call pathogen#infect()
 let g:Powerline_symbols = 'fancy'
+
+" hide nerdtree scrollbar in macvim
+set guioptions=-R
