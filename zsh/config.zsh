@@ -70,7 +70,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 [[ -s /etc/profile.d/autojump.zsh ]] && source /etc/profile.d/autojump.zsh
 
 # vim keybinds in terminal? awwwww yeeeaaahhh
-bindkey -v
+# bindkey -v
 
 # to allow "xterm-256color"
 export TERM="xterm"
