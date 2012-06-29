@@ -3,7 +3,7 @@ call pathogen#infect()
 filetype plugin indent on
 
 set lines=100
-set columns=150
+set columns=175
 set guioptions-=T
 
 " hide scrollbars
@@ -69,3 +69,7 @@ nnoremap <F3> :call g:ToggleRNU()<CR>
 
 " powerline
 set laststatus=2
+
+" nerdtree
+let g:nerdtree_tabs_open_on_gui_startup=0
+nnoremap <C-d> :NERDTreeMirrorToggle<CR>
