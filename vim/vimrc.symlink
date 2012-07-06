@@ -1,7 +1,69 @@
+" pathogen (do this before everything)
 call pathogen#infect()
+filetype plugin indent on
 let g:Powerline_symbols = 'fancy'
 
 " hide nerdtree scrollbar in macvim
+set guioptions-=r
 set guioptions=-R
 
 set noswapfile
+
+set lines=100
+set columns=175
+set guioptions-=T
+
+set t_Co=256
+syntax enable
+
+set ruler
+set autoindent
+" set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set tabstop=4
+set shiftwidth=4
+set cursorline
+set foldmethod=marker
+set fen
+
+set shiftround
+
+nmap <C-N><C-N> :set invnumber<CR>
+nmap <C-S> :silent noh<CR>
+set number
+set numberwidth=4
+
+let g:easytags_cmd = '/usr/local/bin/ctags'
+let g:easytags_always_enabled = 1
+set tags=./.tags;,~/.vimtags
+
+" annoying shift mistakes
+cmap W w
+
+" set up syntax completion
+imap <C-Tab> <C-x><C-o>
+
+" custom syntax highlighting rules
+au BufNewFile,BufRead *.less set filetype=less
+
+" numbers.vim made easy
+function! g:ToggleRNU()
+	if(&rnu == 1)
+		set nu
+	else
+		set rnu
+	endif
+endfunc
+nnoremap <F3> :call g:ToggleRNU()<CR>
+
+" powerline
+set laststatus=2
+
+" nerdtree
+let g:nerdtree_tabs_open_on_gui_startup=0
+nnoremap <C-d> :NERDTreeMirrorToggle<CR>
+
+" show only specific marks
+let g:showmarks_include="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLNOPQRSTUVWXYZ0123456789"
