@@ -9,10 +9,6 @@ set guioptions=-R
 
 set noswapfile
 
-set lines=100
-set columns=175
-set guioptions-=T
-
 set t_Co=256
 syntax enable
 

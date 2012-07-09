@@ -3,7 +3,11 @@ colorscheme candycode
 hi LineNr guibg=grey10 guifg=grey30
 hi Folded guibg=#1d1d1d guifg=#808080 gui=none
 
-set enc=utf-8 gfn=Consolas\ for\ Powerline:h11
+set lines=120
+set columns=180
+set guioptions-=T
+
+set enc=utf-8 gfn=Inconsolata\ for\ Powerline:h12
 set mousehide
 
 " stop cursor blinking
