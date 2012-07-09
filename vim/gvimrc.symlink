@@ -28,3 +28,6 @@ hi! link PMenu DiffAdd
 hi! link PMenuSel DiffChange
 hi! link PMenuSbar DiffAdd 
 hi! link PMenuThumb DiffAdd
+
+" ColorHEX picker
+nnoremap <D-C> :ColorHEX<CR>
