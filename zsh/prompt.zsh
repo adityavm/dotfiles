@@ -164,13 +164,24 @@ function notes_prompt() {
   fi
 }
 
+# print out which virtual environment I'm
+# currently running in
+function venv_rprompt() {
+  local VENV=$(echo $VIRTUAL_ENV);
+  local PATTERN="\/(\w+)";
+
+  if [[ -n $VENV ]]; then
+	  echo "%{$fg[green]%}active:%{$reset_color%} %{$fg[white]%}$(echo $VENV | cut -d / -f 5)%{$reset_color%}"
+  fi
+}
+
 export PROMPT='%{$fg[blue]%}%c \
 $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
 %{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
 
 set_prompt () {
-  export RPROMPT="$(notes_prompt TODO) %{$fg_bold[yellow]%}$(notes_prompt HACK)%{$reset_color%} %{$fg_bold[red]%}$(notes_prompt FIXME)%{$reset_color%} %{$fg_bold[white]%}$(todo_prompt +next)%{$reset_color%}"
+	export RPROMPT="$(venv_rprompt) $(notes_prompt TODO) %{$fg_bold[yellow]%}$(notes_prompt HACK)%{$reset_color%} %{$fg_bold[red]%}$(notes_prompt FIXME)%{$reset_color%} %{$fg_bold[white]%}$(todo_prompt +next)%{$reset_color%}"
 }
 
 precmd() {

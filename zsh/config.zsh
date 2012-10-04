@@ -1,9 +1,15 @@
 # $PATH modification
-export PATH=$PATH:/usr/local/bin/todo
+export PATH=$PATH:/usr/local/git/bin:/usr/local/bin/todo
 export NODE_PATH=$PATH:/usr/local/lib/node:/usr/local/lib/node_modules
 
 # for nodjs
 export NODE_PATH=/usr/local/lib/node
+
+# for virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+source /usr/local/bin/virtualenvwrapper.sh
 
 # for fasd
 eval "$(fasd --init auto)"
