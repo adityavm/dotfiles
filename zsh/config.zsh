@@ -1,5 +1,5 @@
 # $PATH modification
-export PATH=$PATH:/usr/local/git/bin:/usr/local/bin/todo
+export PATH=$PATH:/usr/local/git/bin
 export NODE_PATH=$PATH:/usr/local/lib/node:/usr/local/lib/node_modules
 
 # for nodjs
@@ -10,9 +10,6 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
 source /usr/local/bin/virtualenvwrapper.sh
-
-# for fasd
-eval "$(fasd --init auto)"
 
 if [[ -n $SSH_CONNECTION ]]; then
   export PS1='%m:%3~$(git_info_for_prompt)%# '

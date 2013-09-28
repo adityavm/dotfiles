@@ -125,65 +125,7 @@ function git_time_since_commit() {
   fi
 }
 
-# This keeps the number of todos always available the right hand side of my
-# command line. I filter it to only count those tagged as "+next", so it's more
-# of a motivation to clear out the list.
-todo_count(){
-  if $(which t &> /dev/null)
-  then
-    num=$(echo $(t ls $1 | wc -l))
-    let todos=num-2
-    echo "$todos"
-  fi
-}
-
-function todo_prompt() {
-  local COUNT=$(todo_count $1);
-  if [ $COUNT != 0 ]; then
-    echo "$1: $COUNT";
-  else
-    echo "";
-  fi
-}
-
-function notes_count() {
-  if [[ -z $1 ]]; then
-    local NOTES_PATTERN="TODO|FIXME|HACK";
-  else
-    local NOTES_PATTERN=$1;
-  fi
-  grep -ERn "\b($NOTES_PATTERN)\b" {notes,todo} 2>/dev/null | wc -l | sed 's/ //g'
-}
-
-function notes_prompt() {
-  local COUNT=$(notes_count $1);
-  if [ $COUNT != 0 ]; then
-    echo "$1: $COUNT";
-  else
-    echo "";
-  fi
-}
-
-# print out which virtual environment I'm
-# currently running in
-function venv_rprompt() {
-  local VENV=$(echo $VIRTUAL_ENV);
-  local PATTERN="\/(\w+)";
-
-  if [[ -n $VENV ]]; then
-	  echo "%{$fg[green]%}active:%{$reset_color%} %{$fg[white]%}$(echo $VENV | cut -d / -f 5)%{$reset_color%}"
-  fi
-}
-
 export PROMPT='%{$fg[blue]%}%c \
 $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
 %{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
-
-set_prompt () {
-	export RPROMPT="$(venv_rprompt) $(notes_prompt TODO) %{$fg_bold[yellow]%}$(notes_prompt HACK)%{$reset_color%} %{$fg_bold[red]%}$(notes_prompt FIXME)%{$reset_color%} %{$fg_bold[white]%}$(todo_prompt +next)%{$reset_color%}"
-}
-
-precmd() {
-  set_prompt
-}
