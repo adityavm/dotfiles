@@ -17,6 +17,9 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
+# for fasd
+eval "$(fasd --init auto)"
+
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
