@@ -9,7 +9,7 @@ export NODE_PATH=/usr/local/lib/node
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 export PIP_RESPECT_VIRTUALENV=true
-source /usr/local/bin/virtualenvwrapper.sh
+#ssource /usr/local/bin/virtualenvwrapper.sh
 
 if [[ -n $SSH_CONNECTION ]]; then
   export PS1='%m:%3~$(git_info_for_prompt)%# '
@@ -18,7 +18,7 @@ else
 fi
 
 # for fasd
-eval "$(fasd --init auto)"
+#eval "$(fasd --init auto)"
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
 export CLICOLOR=true
