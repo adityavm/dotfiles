@@ -1,9 +1,8 @@
 # $PATH modification
 export PATH=$PATH:/usr/local/git/bin
-export NODE_PATH=$PATH:/usr/local/lib/node:/usr/local/lib/node_modules
 
-# for nodjs
-export NODE_PATH=/usr/local/lib/node
+# for nodejs, npm
+export NODE_PATH=$PATH:/usr/local/lib/node:/usr/local/lib/node_modules:/usr/lib/node_modules
 
 # for virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
