@@ -125,7 +125,7 @@ function git_time_since_commit() {
   fi
 }
 
-export PROMPT='%{$fg[blue]%}%c \
+export PROMPT='%{$fg[green]%}%c \
 $(git_prompt_info)\
 $(git_time_since_commit)%{$reset_color%} \
-%{$fg[white]%}%(!.#.⚡)%{$reset_color%} '
+%{$fg[white]%}%(!.#.%{$fg[yellow]%}★%{$reset_color%}  '
